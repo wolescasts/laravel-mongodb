@@ -36,6 +36,7 @@
             "Jenssegers\\Mongodb\\": "src/"
         }
     },
+    "minimum-stability": "dev",
     "autoload-dev": {
         "classmap": [
             "tests/TestCase.php",
