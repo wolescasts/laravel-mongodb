@@ -590,7 +590,10 @@ class Builder extends BaseBuilder
      */
     public function insertGetId(array $values, $sequence = null)
     {
-        $result = $this->collection->insertOne($values);
+        // if transaction in session
+        $options = $this->setSession();
+
+        $result = $this->collection->insertOne($values, $options);
 
         if (1 == (int) $result->isAcknowledged()) {
             if ($sequence === null) {
@@ -1264,6 +1267,7 @@ class Builder extends BaseBuilder
         if (!isset($options['session']) && ($session = $this->connection->getSession())) {
             $options['session'] = $session;
         }
+
         return $options;
     }
 
