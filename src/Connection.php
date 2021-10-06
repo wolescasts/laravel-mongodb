@@ -29,6 +29,12 @@ class Connection extends BaseConnection
      * @var array
      */
     protected $sessions = [];
+    
+    /**
+     * The MongoDB session key.
+     * @var string
+     */
+    protected $session_key;
 
     /**
      * Create a new database connection instance.
